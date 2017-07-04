@@ -27,7 +27,7 @@ SECRET_KEY = 'v1*kr+jr+*l__!g^xebt)=*1f^0iw@fdfw*j*y^t9a$^9d%1oj'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['jueleo-stage.herokuapp.com', 'jueleo.herokuapp.com']
 
 
 # Application definition
