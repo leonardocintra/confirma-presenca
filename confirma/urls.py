@@ -22,6 +22,7 @@ from core import views
 urlpatterns = [
     url(r'^$', views.index, name='index'),
     url(r'^convidados/', views.convidado_list, name='convidados'),
+    url(r'^delete/(?P<pk>[0-9]+)/$', views.convidado_delete, name='convidado_delete'),	
     url(r'^admin/', admin.site.urls),
 ]
 

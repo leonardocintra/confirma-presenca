@@ -1,0 +1,14 @@
+{% extends "core/base.html" %}
+
+{% block content %}
+    <form action="" method="post">
+        {% csrf_token %}
+        <h3>Tem certeza que deseja excluir "{{ object }}"?</h3>
+        <div class="form-group">
+            <label for="exampleInputEmail1">Nome:</label>
+            <strong>{{ object.nome_convidado }}</strong>
+        </div>                               
+        <input type="submit" value="Confirmar" class="btn btn-danger" />
+        <a href="{% url 'convidados' %}" class="btn btn-success"> Cancelar </a>
+    </form>
+{% endblock content %}

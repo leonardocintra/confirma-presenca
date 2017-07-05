@@ -2,7 +2,7 @@ from django.core.urlresolvers import reverse_lazy
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.messages.views import SuccessMessageMixin
 from django.db.models import Sum
-from django.views.generic import TemplateView, ListView, UpdateView, DeleteView
+from django.views.generic import ListView, UpdateView, DeleteView
 from django.views.generic.edit import CreateView
 from .models import Convidado
 
@@ -27,5 +27,11 @@ class ConvidadoList(LoginRequiredMixin, ListView):
         return context
 
 
+class ConvidadoDelete(LoginRequiredMixin, DeleteView):
+    model = Convidado
+    success_url = reverse_lazy('index')
+
+
 index = IndexView.as_view()
 convidado_list = ConvidadoList.as_view()
+convidado_delete = ConvidadoDelete.as_view()

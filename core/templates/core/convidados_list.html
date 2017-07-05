@@ -21,6 +21,7 @@
                     <th>Convidado</th>
                     <th class="text-center">Quantidade</th>
                     <th>Data da Confirmação</th>
+                    <th></th>
                 </tr>
             </thead>
             <tbody>
@@ -30,6 +31,7 @@
                     <th>{{ convidado.nome_convidado }}</th>
                     <th class="text-center">{{ convidado.quantidade_convidados }}</th>
                     <th>{{ convidado.data_cadastro }}</th>
+                    <th><a href="{% url 'convidado_delete' convidado.id %}">Excluir</a></th>
                 </tr>
                 {% endfor %}
             </tbody>
