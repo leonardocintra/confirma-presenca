@@ -29,7 +29,7 @@ class ConvidadoList(LoginRequiredMixin, ListView):
 
 class ConvidadoDelete(LoginRequiredMixin, DeleteView):
     model = Convidado
-    success_url = reverse_lazy('index')
+    success_url = reverse_lazy('convidados')
 
 
 index = IndexView.as_view()
