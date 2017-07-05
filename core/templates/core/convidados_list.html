@@ -10,6 +10,9 @@
         </a>
     </div>
     <div class="row">
+
+        <h4>Quantidade de pessoas: {{ quantidade_confirmada }}</h4> 
+
         {% if convidados_list %}
         <table class="table table-striped">
             <thead>
@@ -17,7 +20,7 @@
                     <th>#</th>
                     <th>Convidado</th>
                     <th>Quantidade</th>
-                    <th>Data Cadastro</th>
+                    <th>Data da Confirmação</th>
                 </tr>
             </thead>
             <tbody>

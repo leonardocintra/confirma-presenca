@@ -42,11 +42,11 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#">Confirma Presença</a>
+          <a class="navbar-brand" href="{% url 'index' %}">Confirma Presença</a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
-            <li class="active"><a href="#">Home</a></li>
+            <li class="active"><a href="{% url 'index' %}">Home</a></li>
             <li><a href="#about">Sobre</a></li>
             <li><a href="#contact">Contato</a></li>
             {% if user.is_authenticated %}
