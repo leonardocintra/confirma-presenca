@@ -10,16 +10,16 @@
   </div>
 
   <div class="col-sm-6">
+    {% for message in messages %}
+      <div class="alert alert-{{ message.tags }}">
+          {{ message }}
+      </div>
+    {% endfor %}
     <blockquote>
       <p>Insira o nome ou nome do casal e a quantidade de pessoas.</p>
       <footer>Exemplo: <cite title="Título da fonte">Dr. Marcio e Esposa, quantidade: 2</cite></footer>
       <footer>Exemplo: <cite title="Título da fonte">Ricardo Souza, quantidade: 1</cite></footer>
     </blockquote>
-    {% for message in messages %}
-      <div class="alert alert-{{ message.tags }}">
-          {{ message }}
-      </div>
-    {% endfor %} 
     <form action="" method="post" class="form-horizontal">
       {% csrf_token %}
 
