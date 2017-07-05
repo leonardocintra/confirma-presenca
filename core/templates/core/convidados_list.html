@@ -19,7 +19,7 @@
                 <tr>
                     <th>#</th>
                     <th>Convidado</th>
-                    <th>Quantidade</th>
+                    <th class="text-center">Quantidade</th>
                     <th>Data da Confirmação</th>
                 </tr>
             </thead>
@@ -28,7 +28,7 @@
                 <tr>
                     <th>{{ convidado.id }}</th>
                     <th>{{ convidado.nome_convidado }}</th>
-                    <th>{{ convidado.quantidade_convidados }}</th>
+                    <th class="text-center">{{ convidado.quantidade_convidados }}</th>
                     <th>{{ convidado.data_cadastro }}</th>
                 </tr>
                 {% endfor %}
