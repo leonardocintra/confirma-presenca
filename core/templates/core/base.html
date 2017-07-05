@@ -49,6 +49,9 @@
             <li class="active"><a href="#">Home</a></li>
             <li><a href="#about">Sobre</a></li>
             <li><a href="#contact">Contato</a></li>
+            {% if user.is_authenticated %}
+              <li><a href="{% url 'convidados' %}">Convidados</a></li>
+            {% endif %}
           </ul>
           <ul class="nav navbar-nav navbar-right">
             

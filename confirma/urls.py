@@ -21,6 +21,7 @@ from core import views
 
 urlpatterns = [
     url(r'^$', views.index, name='index'),
+    url(r'^convidados/', views.convidado_list, name='convidados'),
     url(r'^admin/', admin.site.urls),
 ]
 

@@ -1,0 +1,38 @@
+{% extends "core/base.html" %} 
+
+{% block content %}
+    <div class="page-header">
+        <h1><i class="fa fa-user-md" aria-hidden="true"></i> Convidados <small>Exibindo convidados cadastrados</small></h1>
+    </div>
+    <div class="row" style="padding-bottom: 20px;">
+        <a href="{% url 'index' %}" class="btn btn-success">
+            <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Adicionar Convidados
+        </a>
+    </div>
+    <div class="row">
+        {% if convidados_list %}
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Convidado</th>
+                    <th>Quantidade</th>
+                    <th>Data Cadastro</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for convidado in convidados_list %}
+                <tr>
+                    <th>{{ convidado.id }}</th>
+                    <th>{{ convidado.nome_convidado }}</th>
+                    <th>{{ convidado.quantidade_convidados }}</th>
+                    <th>{{ convidado.data_cadastro }}</th>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        {% else %}
+            <h2>Nenhum convidado cadastrado ainda</h2>
+        {% endif %}
+    </div>    
+{% endblock content %}

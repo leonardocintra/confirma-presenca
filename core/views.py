@@ -16,7 +16,10 @@ class IndexView(SuccessMessageMixin, CreateView):
 
 
 class ConvidadoList(LoginRequiredMixin, ListView):
-    pass
+    model = Convidado
+    template_name = 'core/convidados_list.html'
+    context_object_name = 'convidados_list'
 
 
 index = IndexView.as_view()
+convidado_list = ConvidadoList.as_view()
