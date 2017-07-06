@@ -9,36 +9,43 @@
     <p>Confirme sua presença agora mesmo!</p>
   </div>
 
-  <div class="col-sm-6">
-    {% for message in messages %}
-      <div class="alert alert-{{ message.tags }}">
-          {{ message }}
-      </div>
-    {% endfor %}
-    <blockquote>
-      <p>Insira o nome ou nome do casal e a quantidade de pessoas.</p>
-      <footer>Exemplo: <cite title="Título da fonte">Jose e Esposa, quantidade: 2</cite></footer>
-      <footer>Exemplo: <cite title="Título da fonte">Maria, quantidade: 1</cite></footer>
-    </blockquote>
-    <form action="" method="post" class="form-horizontal">
-      {% csrf_token %}
-
-      {% for field in form %}
-        <div class="form-group">
-          <label for="{{ field.auto_id }}" class="col-sm-4 control-label">{{ field.label }}</label>
-          <div class="col-sm-8">
-            {% render_field field class="form-control" placeholder=field.label %}
-            {% for error in field.errors %}
-              <span class="help-block">{{ error }}</span>
-            {% endfor %}
-          </div>
+  <div class="row">    
+    <div class="col-sm-6">
+      
+      {% for message in messages %}
+        <div class="alert alert-{{ message.tags }}">
+            {{ message }}
         </div>
       {% endfor %}
+      <blockquote>
+        <p>Insira o nome ou nome do casal e a quantidade de pessoas.</p>
+        <footer>Exemplo: <cite title="Título da fonte">Jose e Esposa, quantidade: 2</cite></footer>
+        <footer>Exemplo: <cite title="Título da fonte">Maria, quantidade: 1</cite></footer>
+      </blockquote>
+      <form action="" method="post" class="form-horizontal">
+        {% csrf_token %}
 
-      <div class="col-sm-offset-2 col-sm-10">
-        <button type="submit" class="btn btn-success">Confirmar minha presença</button>
-      </div>
-    </form>
+        {% for field in form %}
+          <div class="form-group">
+            <label for="{{ field.auto_id }}" class="col-sm-4 control-label">{{ field.label }}</label>
+            <div class="col-sm-8">
+              {% render_field field class="form-control" placeholder=field.label %}
+              {% for error in field.errors %}
+                <span class="help-block">{{ error }}</span>
+              {% endfor %}
+            </div>
+          </div>
+        {% endfor %}
+
+        <div class="col-sm-offset-2 col-sm-10">
+          <button type="submit" class="btn btn-success">Confirmar minha presença</button>
+        </div>
+      </form>
+    </div>
+
+    <div class="col-sm-6">
+      <h1>Falta: {{ data_casamento|timeuntil }}</h1>
+    </div>
   </div>
 
 {% endblock content %}
