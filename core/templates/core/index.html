@@ -6,7 +6,7 @@
 
   <div class="jumbotron">
     <h1><small>casamento</small> Juliana & Leonardo</h1>
-    <p>Confirme sua presença agora mesmo!</p>
+    <p>Confirme sua presença agora mesmo! <span class="glyphicon glyphicon-heart" aria-hidden="true"></span></p>
   </div>
 
   <div class="row">    
@@ -38,13 +38,13 @@
         {% endfor %}
 
         <div class="col-sm-offset-2 col-sm-10">
-          <button type="submit" class="btn btn-success">Confirmar minha presença</button>
+          <button type="submit" class="btn btn-success"> Confirmar minha presença <span class="glyphicon glyphicon-ok-circle" aria-hidden="true"></span></button>
         </div>
       </form>
     </div>
 
     <div class="col-sm-6">
-      <h1>Falta: {{ data_casamento|timeuntil }}</h1>
+      <h1><small><span class="glyphicon glyphicon-calendar" aria-hidden="true"></span> Falta:</small> {{ data_casamento|timeuntil }}!</h1>
     </div>
   </div>
 

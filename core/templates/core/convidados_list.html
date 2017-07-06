@@ -2,7 +2,7 @@
 
 {% block content %}
     <div class="page-header">
-        <h1><i class="fa fa-user-md" aria-hidden="true"></i> Convidados <small>Exibindo convidados cadastrados</small></h1>
+        <h1><span class="glyphicon glyphicon-list" aria-hidden="true"></span> Convidados <small>Exibindo convidados cadastrados</small></h1>
     </div>
     <div class="row" style="padding-bottom: 20px;">
         <a href="{% url 'index' %}" class="btn btn-success">
@@ -11,7 +11,7 @@
     </div>
     <div class="row">
 
-        <h4>Quantidade de pessoas: {{ quantidade_confirmada }}</h4> 
+        <h4><span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span> Quantidade de pessoas: {{ quantidade_confirmada }}</h4> 
 
         {% if convidados_list %}
         <table class="table table-striped">
@@ -21,7 +21,7 @@
                     <th>Convidado</th>
                     <th class="text-center">Quantidade</th>
                     <th>Data da Confirmação</th>
-                    <th></th>
+                    <th>Ação</th>
                 </tr>
             </thead>
             <tbody>
@@ -31,7 +31,7 @@
                     <th>{{ convidado.nome_convidado }}</th>
                     <th class="text-center">{{ convidado.quantidade_convidados }}</th>
                     <th>{{ convidado.data_cadastro }}</th>
-                    <th><a href="{% url 'convidado_delete' convidado.id %}">Excluir</a></th>
+                    <th><a href="{% url 'convidado_delete' convidado.id %}">Remover</a></th>
                 </tr>
                 {% endfor %}
             </tbody>
