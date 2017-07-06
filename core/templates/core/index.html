@@ -6,17 +6,11 @@
 
   <div class="jumbotron">
     <h1><small>casamento</small> Juliana & Leonardo</h1>
-    <p>Confirme sua presença agora mesmo! <span class="glyphicon glyphicon-heart" aria-hidden="true"></span></p>
+    <p>Confirme sua presença agora mesmo! <span class="glyphicon glyphicon-heart" style="color: red;" aria-hidden="true"></span></p>
   </div>
 
   <div class="row">    
     <div class="col-sm-6">
-      
-      {% for message in messages %}
-        <div class="alert alert-{{ message.tags }}">
-            {{ message }}
-        </div>
-      {% endfor %}
       <blockquote>
         <p>Insira o nome ou nome do casal e a quantidade de pessoas.</p>
         <footer>Exemplo: <cite title="Título da fonte">Jose e Esposa, quantidade: 2</cite></footer>

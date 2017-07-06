@@ -1,0 +1,28 @@
+{% extends "core/base.html" %}
+
+{% block content %}
+    <h1>
+        <span class="label label-success">
+            Presença confirmada com sucesso!
+            <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+        </span>
+    </h1>
+    <h3><small><span class="glyphicon glyphicon-calendar" aria-hidden="true"></span> Falta:</small> {{ data_casamento|timeuntil }}!</h3>
+    <p>Se tiver alguma duvida entre em contato: <a href="{% url 'contato' %}">clicando aqui </a> </p>
+    
+    <br />
+    <div class="col-sm-6">
+        <h2><small>local da festa</small> Clube Castelinho </h2>
+        <address>
+            <strong>Restaurante - Clube Castelinho</strong><br>
+            Av. Miguel Sábio de Mello, 351 - Bairro Vila Santa Rita<br>
+            Franca, SP 14403-383<br>
+            <abbr title="Phone">Tel:</abbr> (16) 3707-4800
+        </address>
+
+        <address>
+            <strong>Juliana Rodrigues</strong><br>
+            <a href="mailto:julianarosarodrigues@hotmail.com">julianarosarodrigues@hotmail.com</a>
+        </address>
+    </div>
+{% endblock content %}

@@ -1,7 +1,6 @@
 from datetime import date
 from django.core.urlresolvers import reverse_lazy
 from django.contrib.auth.mixins import LoginRequiredMixin
-from django.contrib.messages.views import SuccessMessageMixin
 from django.db.models import Sum
 from django.views.generic import ListView, UpdateView, DeleteView, TemplateView
 from django.views.generic.edit import CreateView
@@ -17,13 +16,20 @@ class AboutView(TemplateView):
     template_name = 'core/about.html'
 
 
+class PresencaConfirmadaView(TemplateView):
+    template_name = 'core/presenca_confirmada.html'
 
-class IndexView(SuccessMessageMixin, CreateView):
+    def get_context_data(self, **kwargs):
+        context = super(PresencaConfirmadaView, self).get_context_data(**kwargs)
+        context['data_casamento'] = date(2017, 10, 6)
+        return context
+
+
+class IndexView(CreateView):
     template_name = 'core/index.html'
     model = Convidado
     fields = ['nome_convidado', 'quantidade_convidados', ]
-    success_url = reverse_lazy('index')
-    success_message = "Sua presença foi confirmada com sucesso! Muito obrigado!"
+    success_url = reverse_lazy('presenca_confirmada')
 
     def get_context_data(self, **kwargs):
         context = super(IndexView, self).get_context_data(**kwargs)
@@ -52,3 +58,4 @@ about = AboutView.as_view()
 index = IndexView.as_view()
 convidado_list = ConvidadoList.as_view()
 convidado_delete = ConvidadoDelete.as_view()
+presenca_confirmada = PresencaConfirmadaView.as_view()
