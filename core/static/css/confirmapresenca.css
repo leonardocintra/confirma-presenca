@@ -2,3 +2,9 @@ body {
   min-height: 100px;
   padding-top: 70px;
 }
+
+@media print {
+  .imprimir {
+    display: none;
+  }
+}

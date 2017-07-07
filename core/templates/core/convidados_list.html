@@ -21,17 +21,17 @@
                     <th>Convidado</th>
                     <th class="text-center">Quantidade</th>
                     <th>Data da Confirmação</th>
-                    <th>Ação</th>
+                    <th class="imprimir">Ação</th>
                 </tr>
             </thead>
             <tbody>
                 {% for convidado in convidados_list %}
                 <tr>
-                    <th>{{ convidado.id }}</th>
-                    <th>{{ convidado.nome_convidado }}</th>
-                    <th class="text-center">{{ convidado.quantidade_convidados }}</th>
-                    <th>{{ convidado.data_cadastro }}</th>
-                    <th><a href="{% url 'convidado_delete' convidado.id %}">Remover</a></th>
+                    <td>{{ convidado.id }}</td>
+                    <td>{{ convidado.nome_convidado }}</td>
+                    <td class="text-center">{{ convidado.quantidade_convidados }}</td>
+                    <td>{{ convidado.data_cadastro }}</td>
+                    <td class="imprimir"><a href="{% url 'convidado_delete' convidado.id %}"><span class="label label-danger">Remover</span></a></td>
                 </tr>
                 {% endfor %}
             </tbody>
