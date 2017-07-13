@@ -20,7 +20,7 @@ class IndexView(CreateView):
     template_name = 'core/index.html'
     model = Convidado
     fields = ['nome_convidado', 'quantidade_convidados', ]
-    success_url = reverse_lazy('presenca_confirmada')
+    success_url = reverse_lazy('convidado:presenca_confirmada')
 
     def get_context_data(self, **kwargs):
         context = super(IndexView, self).get_context_data(**kwargs)

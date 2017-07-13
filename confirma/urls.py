@@ -21,11 +21,8 @@ from core import views
 
 urlpatterns = [
     url(r'^$', views.index, name='index'),
-    #url(r'^convidados/', views.convidado_list, name='convidados'),
-    #url(r'^delete/(?P<pk>[0-9]+)/$', views.convidado_delete, name='convidado_delete'),	
     url(r'^sobre/', views.about, name='about'),
     url(r'^contato/', views.contato, name='contato'),
-    #url(r'^presenca-confirmada/', views.presenca_confirmada, name='presenca_confirmada'),
     url(r'^convidado/', include('convidado.urls', namespace='convidado')),
     url(r'^admin/', admin.site.urls),
 ]

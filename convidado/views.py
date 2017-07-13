@@ -16,21 +16,22 @@ class PresencaConfirmadaView(TemplateView):
         return context
 
 
-class ConvidadoList(LoginRequiredMixin, ListView):
+class ConvidadoListView(LoginRequiredMixin, ListView):
     model = Convidado
     template_name = 'convidado/convidados_list.html'
     context_object_name = 'convidados_list'
 
     def get_context_data(self, **kwargs):
-        context = super(ConvidadoList, self).get_context_data(**kwargs)
+        context = super(ConvidadoListView, self).get_context_data(**kwargs)
         context['quantidade_confirmada'] = Convidado.objects.aggregate(Sum('quantidade_convidados')).get('quantidade_convidados__sum', 0)
         return context
 
 
-class ConvidadoDelete(LoginRequiredMixin, DeleteView):
+class ConvidadoDeleteView(LoginRequiredMixin, DeleteView):
     model = Convidado
     success_url = reverse_lazy('convidado:convidado_list')
 
-convidado_list = ConvidadoList.as_view()
-convidado_delete = ConvidadoDelete.as_view()
+
+convidado_list = ConvidadoListView.as_view()
+convidado_delete = ConvidadoDeleteView.as_view()
 presenca_confirmada = PresencaConfirmadaView.as_view()

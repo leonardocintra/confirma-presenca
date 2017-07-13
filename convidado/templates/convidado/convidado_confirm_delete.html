@@ -9,6 +9,6 @@
             <strong>{{ object.nome_convidado }}</strong>
         </div>                               
         <input type="submit" value="Confirmar" class="btn btn-danger" />
-        <a href="{% url 'convidados' %}" class="btn btn-success"> Cancelar </a>
+        <a href="{% url 'convidado:convidado_list' %}" class="btn btn-success"> Cancelar </a>
     </form>
 {% endblock content %}
