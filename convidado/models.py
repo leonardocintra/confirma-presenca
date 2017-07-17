@@ -3,12 +3,18 @@
 """
 from django.db import models
 
+CONFIRMA_PRESENCA = (
+    ('SIM', 'Sim'),
+    ('NAO', 'Não'),
+)
+
+CONVIDADO_POR = (
+    ('NO', 'Noivo'),
+    ('NA', 'Noiva'),
+)
+
 class Convidado(models.Model):
-    """ Convidado - Model"""
-    CONFIRMA_PRESENCA = (
-        ('SIM', 'Sim'),
-        ('NAO', 'Não'),
-    )
+    """ Convidado - Model - Os convidados confirmam a presença aqui"""
     nome_convidado = models.CharField(max_length=300, unique=True)
     quantidade_convidados = models.IntegerField(default=0)
     confirma_presenca = models.CharField('Confirma presença', default=True, choices=CONFIRMA_PRESENCA, max_length=3)
@@ -23,3 +29,16 @@ class Convidado(models.Model):
     class Meta:
         """ Meta """
         db_table = 'convidados'
+
+
+class ListaConvidados(models.Model):
+    """ Sua lista de casamento para controle """
+    nome_convidado = models.CharField(max_length=300)
+    quantidade_convidados = models.IntegerField(default=0)
+    convidado_por = models.CharField('Convidado por', max_length=2, choices=CONVIDADO_POR)
+
+    def __str__(self):
+        return self.nome_convidado
+
+    class Meta:
+        db_table = 'lista_convidados'
