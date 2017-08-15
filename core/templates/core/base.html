@@ -50,7 +50,8 @@
             <li><a href="{% url 'about' %}">Sobre</a></li>
             <li><a href="{% url 'contato' %}">Contato</a></li>
             {% if user.is_authenticated %}
-              <li><a href="{% url 'convidado:convidado_list' %}">Convidados</a></li>
+              <li><a href="{% url 'convidado:convidado_list' %}">Convidados confirmados</a></li>
+              <li><a href="{% url 'convidado:lista_convidado_list' %}">Lista de Convidados</a></li>
             {% endif %}
           </ul>
           <ul class="nav navbar-nav navbar-right">

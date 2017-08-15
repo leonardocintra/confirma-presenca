@@ -4,7 +4,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.db.models import Sum
 from django.views.generic import ListView, UpdateView, DeleteView, TemplateView
 from django.views.generic.edit import CreateView
-from .models import Convidado
+from .models import Convidado, ListaConvidados
 
 
 class PresencaConfirmadaView(TemplateView):
@@ -32,6 +32,16 @@ class ConvidadoDeleteView(LoginRequiredMixin, DeleteView):
     success_url = reverse_lazy('convidado:convidado_list')
 
 
+class ListaConvidadoCreate(LoginRequiredMixin, CreateView):
+    model = ListaConvidados
+    template_name = 'listaConvidado/listaconvidados_form.html'
+    fields = ('nome_convidado', 'quantidade_convidados', 'convidado_por', )
+
+
+# Convidados Confirma Presença
 convidado_list = ConvidadoListView.as_view()
 convidado_delete = ConvidadoDeleteView.as_view()
 presenca_confirmada = PresencaConfirmadaView.as_view()
+
+# Convidados lista feita pelos noivos
+lista_convidado_list = ListaConvidadoCreate.as_view()

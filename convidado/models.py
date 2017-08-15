@@ -36,6 +36,7 @@ class ListaConvidados(models.Model):
     nome_convidado = models.CharField(max_length=300)
     quantidade_convidados = models.IntegerField(default=0)
     convidado_por = models.CharField('Convidado por', max_length=2, choices=CONVIDADO_POR)
+    presenca_confirmada = models.BooleanField('Presença confirmada', default=False)
 
     def __str__(self):
         return self.nome_convidado
