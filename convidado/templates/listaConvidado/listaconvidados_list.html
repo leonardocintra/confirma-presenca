@@ -1,0 +1,41 @@
+{% extends "core/base.html" %} 
+
+{% block content %}
+    <div class="page-header">
+        <h1><span class="glyphicon glyphicon-list" aria-hidden="true"></span> Convidados <small>Exibindo convidados cadastrados</small></h1>
+    </div>
+    <div class="row" style="padding-bottom: 20px;">
+        <a href="{% url 'convidado:lista_convidado_create' %}" class="btn btn-success">
+            <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Adicionar Convidados
+        </a>
+    </div>
+    <div class="row">
+
+        {% if lista_convidado_list %}
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Convidado</th>
+                    <th class="text-center">Quantidade</th>
+                    <th>Data da Confirmação</th>
+                    <th class="imprimir">Ação</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for convidado in lista_convidado_list %}
+                <tr>
+                    <td>{{ convidado.id }}</td>
+                    <td>{{ convidado.nome_convidado }}</td>
+                    <td class="text-center">{{ convidado.quantidade_convidados }}</td>
+                    <td>{{ convidado.data_cadastro }}</td>
+                    <td class="imprimir"><a href="{% url 'convidado:convidado_delete' convidado.id %}"><span class="label label-danger">Remover</span></a></td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        {% else %}
+            <h2>Nenhum convidado cadastrado ainda</h2>
+        {% endif %}
+    </div>    
+{% endblock content %}

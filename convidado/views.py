@@ -32,10 +32,17 @@ class ConvidadoDeleteView(LoginRequiredMixin, DeleteView):
     success_url = reverse_lazy('convidado:convidado_list')
 
 
+class ListaConvidadoList(LoginRequiredMixin, ListView):
+    model = ListaConvidados
+    context_object_name = 'lista_convidado_list'
+    template_name = 'listaConvidado/listaconvidados_list.html'
+
+
 class ListaConvidadoCreate(LoginRequiredMixin, CreateView):
     model = ListaConvidados
     template_name = 'listaConvidado/listaconvidados_form.html'
     fields = ('nome_convidado', 'quantidade_convidados', 'convidado_por', )
+    success_url = reverse_lazy('convidado:lista_convidado_list')
 
 
 # Convidados Confirma Presença
@@ -44,4 +51,5 @@ convidado_delete = ConvidadoDeleteView.as_view()
 presenca_confirmada = PresencaConfirmadaView.as_view()
 
 # Convidados lista feita pelos noivos
-lista_convidado_list = ListaConvidadoCreate.as_view()
+lista_convidado_create = ListaConvidadoCreate.as_view()
+lista_convidado_list = ListaConvidadoList.as_view()

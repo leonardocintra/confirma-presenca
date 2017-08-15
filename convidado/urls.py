@@ -14,4 +14,5 @@ urlpatterns = [
 
     # Lista de Convidados pelos noivos
     url(r'^lista/', views.lista_convidado_list, name='lista_convidado_list'),
+    url(r'^novo/', views.lista_convidado_create, name='lista_convidado_create'),    
 ]
